@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>E-commerce website</title>
+    </head>
+    <body>
+        <h1>My new Store ...</h1>
+        <button onclick="loadProducts()">Load Products</button>
+
+        <ul id="products"></ul>
+
+        <script>
+            function loadProducts() {
+                fetch("http://localhost:3000/products")
+                  .then(res => res.json())
+                  .then(data => {
+                    let list = document.getElementById("products");
+                    list.innerHTML= "";
+                    data.forEach(p => { 
+                        let li = document.createElement("li");
+                        li.innerText= p.name + " - rupees" + p.price;
+                        list.appendChild(li);                       
+                    });
+                  });
+            }
+        </script>
+    </body>
+</html>
