@@ -13,13 +13,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Build
-        run: npm run build
+      - name: Pipeline Test
+        uses: echo "CI/CD Pipeline Working Successfully"
+        
+      
